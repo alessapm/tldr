@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { getTopStories } from "../pages/api/scraper";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
+import Link from 'next/link'
 
-const TopStories = ({ title, url, networkImage }) => {
+const TopStories = ({ brand, url, networkImage }) => {
   const [topStories, setTopStories] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   
@@ -21,11 +22,15 @@ const TopStories = ({ title, url, networkImage }) => {
   return (
     <>
       <div>
-         <h1 className="font-bold text-3xl mb-10">Top Stories from {title}</h1>
+         <h1 className="font-bold text-3xl mb-10">Top Stories from {brand}</h1>
          {isLoading && (<Skeleton style={{margin: "2rem 0", width: "640px"}} count={10} />) }
         {topStories?.map((article, index) => (
-
-          <a target="_blank" href={article.articleUrl}>
+          <Link key={`article-${index}`} href={{pathname: `/topStories/${brand}/${index + 1}`,
+          query: {
+            title: article.title,
+            url: article.articleUrl,
+            networkImage,
+          },}}>
             <div
               key={`article-${index}`}
               className="items-center h-auto my-5 w-[326px] flex md:w-[40rem] border-slate-100 rounded-md border-[6px] shadow-md cursor-pointer hover:shadow-xl hover:border-slate-300"
@@ -45,7 +50,7 @@ const TopStories = ({ title, url, networkImage }) => {
                 </span>
               </div>
             </div>
-          </a>
+            </Link>
         ))}
       </div>
     </>

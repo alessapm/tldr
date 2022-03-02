@@ -8,7 +8,7 @@ const MediaSite = ({ mediaObj }) => {
         href={{
           pathname: `/topStories/${mediaObj.title.toLowerCase()}`,
           query: {
-            title: mediaObj.title,
+            brand: mediaObj.title,
             articleUrl: mediaObj.url,
             networkImage: mediaObj.imageUrl,
             color: mediaObj.color
