@@ -48,6 +48,6 @@ export const extractTextFromArticle = async (url) => {
     articleText.push(paragraph.text)
   })
 
-  return firstTenParagraphs.join(' ')
+  return articleText.join(' ')
 
 }
