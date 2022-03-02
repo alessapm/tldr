@@ -2,11 +2,10 @@ import { TopStories } from "../../components";
 import styles from "../../styles/Home.module.css";
 
 export const getServerSideProps = async (context) => {
-  console.log("hmmmmm", context.query);
 
   return {
     props: {
-      title: context.query.title,
+      brand: context.query.brand,
       url: context.query.articleUrl,
       networkImage: context.query.networkImage,
       color: context.query.color
@@ -14,11 +13,11 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-const topStoriesPage = ({ title, url, networkImage }) => {
+const topStoriesPage = ({ brand, url, networkImage }) => {
   return (
     <>
       <main className={styles.main}>
-        <TopStories title={title} url={url} networkImage={networkImage} />
+        <TopStories brand={brand} url={url} networkImage={networkImage} />
       </main>
     </>
   );

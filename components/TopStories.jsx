@@ -4,7 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 import Link from 'next/link'
 
-const TopStories = ({ title, url, networkImage }) => {
+const TopStories = ({ brand, url, networkImage }) => {
   const [topStories, setTopStories] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   
@@ -22,12 +22,12 @@ const TopStories = ({ title, url, networkImage }) => {
   return (
     <>
       <div>
-         <h1 className="font-bold text-3xl mb-10">Top Stories from {title}</h1>
+         <h1 className="font-bold text-3xl mb-10">Top Stories from {brand}</h1>
          {isLoading && (<Skeleton style={{margin: "2rem 0", width: "640px"}} count={10} />) }
         {topStories?.map((article, index) => (
-          <Link href={{pathname: `/topStories/${title}/${index + 1}`,
+          <Link key={`article-${index}`} href={{pathname: `/topStories/${brand}/${index + 1}`,
           query: {
-            title,
+            title: article.title,
             url: article.articleUrl,
             networkImage,
           },}}>
