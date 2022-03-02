@@ -10,7 +10,6 @@ const Summary = ({ title, url, networkImage, summaryText }) => {
   
 
   useEffect(() => {
-      console.log('network img: ', networkImage);
 //     const retrieveSiteInfo = async () => {
 //       const topStories = await getTopStories(url);
 //       setTopStories(topStories);
