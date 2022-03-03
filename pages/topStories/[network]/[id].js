@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
+import Skeleton from "react-loading-skeleton";
 import { extractTextFromArticle } from "../../api/scraper";
 import { Summary } from "../../../components";
 import styles from "../../../styles/Home.module.css";
@@ -15,14 +16,16 @@ export const getServerSideProps = async (context) => {
 };
 
 const articleSummaryPage = ({ title, url, networkImage }) => {
-  const [summary, setSummary] = useState()
+  const [summary, setSummary] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getArticleText(url).then((articleText) => {
       generateSummary(articleText).then((summaryResponse) => {
-          console.log('generateSummary response: ', summaryResponse);
           const summary = summaryResponse.data.choices[0].text;
           setSummary(summary);
+          setIsLoading(false)
       })
     })
   }, []);
@@ -52,10 +55,11 @@ const articleSummaryPage = ({ title, url, networkImage }) => {
   return (
     <>
       <main className={styles.main}>
+      {isLoading && (<Skeleton style={{margin: "2rem 0", width: "640px"}} count={10} />) }
         <Summary title={title} url={url} networkImage={networkImage} summaryText={summary} />
       </main>
     </>
-  );
+  )
 };
 
 export default articleSummaryPage;

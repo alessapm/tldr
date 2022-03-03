@@ -1,8 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { useEffect, useState } from "react";
-import { Configuration, OpenAIApi } from "openai";
-import { MediaSite, Navbar, TopStories } from "../components";
+import { MediaSite } from "../components";
 import {
   voxDataObj,
   theVergeDataObj,
