@@ -9,10 +9,17 @@ module.exports = {
       "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          'c-blue': '#09d4cf',
+          'c-yellow': '#f7e39a',
+          'c-pink': '#fe228a'
+        }
+      },
       fontFamily: {
         'sans': ['Roboto'],
-        'display': ['Bevan']
+        'display': ['Bevan'],
+        'serif': ['Georgia']
       }
     },
     plugins: [],
