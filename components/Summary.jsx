@@ -1,7 +1,9 @@
 import 'react-loading-skeleton/dist/skeleton.css'
+import Image from 'next/image'
 import { FaRobot, FaLongArrowAltLeft, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 import { MdOutlineArticle } from 'react-icons/md';
 import { VscRemove, VscChromeMinimize } from 'react-icons/vsc';
+import emDash from '../public/line2.jpg';
 
 const Summary = ({ title, url, networkImage, summaryText }) => {
 
@@ -21,8 +23,8 @@ const Summary = ({ title, url, networkImage, summaryText }) => {
                         </div>
                         <div className="absolute right-0 flex items-center">
                             {/* <VscRemove className="text-2xl mr-2"/> */}
-                            <VscChromeMinimize className="text-2xl"/>
-                            <VscChromeMinimize className="text-2xl"/>
+                            
+                            <Image width={125} src={emDash} alt="Em Dash" />
                             <FaRobot className="text-6xl" />
                         </div>
                         
