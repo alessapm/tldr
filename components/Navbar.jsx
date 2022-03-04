@@ -6,7 +6,7 @@ import Image from 'next/image'
 const Navbar = () => {
   return (
     <>
-      <div className="drop-shadow sticky opacity-90 bg-black top-0 z-50 flex items-center flex-wrap p-4 justify-between">
+      <div className="drop-shadow-c-yellow sticky opacity-90 bg-black top-0 z-50 flex items-center flex-wrap p-4 justify-between">
         <Link href="/">
           <h1 className="md:ml-10 cursor-pointer text-white font-light text-3xl">
             <ImHome3 />
