@@ -10,7 +10,8 @@ console.log('domain: ', domain);
 console.log('brand: ', brand);
     return (
         <div>
-            <p className="px-4 mx-10 text-c-blue flex">
+            <div className="px-4 mx-10 text-c-blue flex">
+            <FaLongArrowAltLeft className="text-2xl mr-1" />
                 <Link
                 href={{pathname: `/topStories/${brand}`, 
                 query: {
@@ -18,8 +19,8 @@ console.log('brand: ', brand);
                     articleUrl: domain,
                     networkImage
                   }}}>
-                 Back to
-                </Link>{brand} Articles</p>
+                 Back to 
+                </Link><p className='ml-1'>{brand} Articles</p></div>
             <div className="h-auto my-3 flex p-5 pb-12 mx-12 border-b-2 border-c-blue">
                 <img src={`${networkImage}`} className="p-[4px] w-[300px] h-[300px] object-cover" />
                 <div className="font-sans ml-3 relative pb-12">
