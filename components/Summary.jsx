@@ -1,16 +1,26 @@
 import 'react-loading-skeleton/dist/skeleton.css'
 import Image from 'next/image'
+import Link from "next/link";
 import { FaRobot, FaLongArrowAltLeft, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 import { MdOutlineArticle } from 'react-icons/md';
-import { VscRemove, VscChromeMinimize } from 'react-icons/vsc';
 import emDash from '../public/line2.jpg';
 
-const Summary = ({ title, url, networkImage, summaryText }) => {
-
+const Summary = ({ title, url, networkImage, summaryText, brand, domain }) => {
+console.log('domain: ', domain);
+console.log('brand: ', brand);
     return (
         <div>
-            <p className="px-4 mx-10 text-c-blue flex"><span><FaLongArrowAltLeft className="text-2xl mr-1" /></span>Back to Vox Articles</p>
-            <div className="h-auto my-3 flex p-5 mx-12 border-b-2 border-c-blue">
+            <p className="px-4 mx-10 text-c-blue flex">
+                <Link
+                href={{pathname: `/topStories/${brand}`, 
+                query: {
+                    brand,
+                    articleUrl: domain,
+                    networkImage
+                  }}}>
+                 Back to
+                </Link>{brand} Articles</p>
+            <div className="h-auto my-3 flex p-5 pb-12 mx-12 border-b-2 border-c-blue">
                 <img src={`${networkImage}`} className="p-[4px] w-[300px] h-[300px] object-cover" />
                 <div className="font-sans ml-3 relative pb-12">
                     <p className="text-slate-300 font-semibold">Summary Bot</p>

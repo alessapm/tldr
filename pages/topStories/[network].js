@@ -7,8 +7,7 @@ export const getServerSideProps = async (context) => {
     props: {
       brand: context.query.brand,
       url: context.query.articleUrl,
-      networkImage: context.query.networkImage,
-      color: context.query.color
+      networkImage: context.query.networkImage
     },
   };
 };

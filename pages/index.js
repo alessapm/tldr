@@ -28,5 +28,5 @@ export default function Home() {
         <MediaSite mediaObj={polygonDataObj} />
       </main>
     </div>
-  );
+  )
 }

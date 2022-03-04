@@ -2,20 +2,23 @@ import { useEffect, useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
 import Skeleton from "react-loading-skeleton";
 import { extractTextFromArticle } from "../../api/scraper";
-import { Summary } from "../../../components";
+import { Summary, TopStories } from "../../../components";
 import styles from "../../../styles/Home.module.css";
 
 export const getServerSideProps = async (context) => {
+  const { title, url, networkImage, brand, domain } = context.query;
   return {
     props: {
-      title: context.query.title,
-      url: context.query.url,
-      networkImage: context.query.networkImage,
+      title,
+      url,
+      networkImage,
+      brand,
+      domain
     },
   };
 };
 
-const articleSummaryPage = ({ title, url, networkImage }) => {
+const articleSummaryPage = ({ title, url, networkImage, brand, domain }) => {
   const [summary, setSummary] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -56,7 +59,11 @@ const articleSummaryPage = ({ title, url, networkImage }) => {
     <>
       <main className={styles.main}>
       {isLoading && (<Skeleton style={{margin: "2rem 0", width: "640px"}} count={10} />) }
-        <Summary title={title} url={url} networkImage={networkImage} summaryText={summary} />
+        {!isLoading && (<div>
+          <Summary title={title} url={url} networkImage={networkImage} summaryText={summary} brand={brand} domain={domain}/>
+          <TopStories className="mx-12 "brand={brand} url={domain} networkImage={networkImage} alternateView={true}/>
+          </div>
+        )}
       </main>
     </>
   )
