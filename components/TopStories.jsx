@@ -31,7 +31,8 @@ const TopStories = ({ brand, url, networkImage, alternateView = false }) => {
             title: article.title,
             url: article.articleUrl,
             networkImage,
-            brand
+            brand,
+            domain: url
           }}}>
             <div
               key={`article-${index}`}

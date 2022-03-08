@@ -31,7 +31,7 @@ const articleSummaryPage = ({ title, url, networkImage, brand, domain }) => {
           setIsLoading(false)
       })
     })
-  }, []);
+  }, [title]);
 
   const getArticleText = async(url) => {
     const articleText = await extractTextFromArticle(url)

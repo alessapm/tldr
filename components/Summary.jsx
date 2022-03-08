@@ -6,8 +6,7 @@ import { MdOutlineArticle } from 'react-icons/md';
 import emDash from '../public/line2.jpg';
 
 const Summary = ({ title, url, networkImage, summaryText, brand, domain }) => {
-console.log('domain: ', domain);
-console.log('brand: ', brand);
+
     return (
         <div>
             <div className="px-4 mx-10 text-c-blue flex">

@@ -18,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className="flex flex-col tracking-[0.3rem] font-display font-bold px-10 text-3xl text-center mb-5">
+        <h1 className="flex flex-col tracking-[0.3rem] font-display font-bold px-10 text-6xl text-center mb-5">
           tl;dr
           <span className="font-extralight font-sans mt-3 text-base tracking-wide">[ Summarize articles from your favorite networks ]</span>
         </h1>
